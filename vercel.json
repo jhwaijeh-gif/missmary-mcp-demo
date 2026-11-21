@@ -1,0 +1,7 @@
+{
+  "outputDirectory": "public",
+  "rewrites": [{ "source": "/mcp", "destination": "/api/mcp" }],
+  "functions": {
+    "api/*.js": { "includeFiles": "data/**", "maxDuration": 10 }
+  }
+}

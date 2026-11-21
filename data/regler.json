@@ -1,0 +1,69 @@
+{
+  "hamtad": "2026-11-21",
+  "kalla": "Publika regelsidor på missmary.se. Meningarna är återgivna som de stod på sidan, med ett par skiljetecken ändrade.",
+  "regler": [
+    {
+      "id": "retur-100-dagar",
+      "rubrik": "Returrätt i 100 dagar",
+      "amne": ["retur", "returnera", "skicka tillbaka", "100 dagar"],
+      "text": "Du kan returnera dina varor inom 100 dagar från att du tagit emot dem. Varor köpta med tillfälliga medlemserbjudanden eller kampanjer följer den ordinarie returpolicyn på 100 dagar. Produkterna måste returneras i originalskick.",
+      "lank": "https://www.missmary.se/se/cancellations-returns-and-replacements"
+    },
+    {
+      "id": "returfrakt",
+      "rubrik": "Returfrakt och återbetalning vid retur",
+      "amne": ["retur", "returfrakt", "frakt", "återbetalning", "pengar tillbaka", "kostar"],
+      "text": "Skicka returen i samma skick som levererat. Du får återanvända originalförpackningen. Returfrakt betalas av kunden och returer efter 100 dagar kan inte accepteras. Återbetalningar görs med samma betalningsmetod efter att vi tagit emot och kontrollerat varan. Observera att vi inte återbetalar kostnaden för expressfrakt eller något fraktalternativ som är dyrare än vår standardleverans vid retur. Standardfrakt återbetalas endast om hela ordern returneras.",
+      "lank": "https://www.missmary.se/se/cancellations-returns-and-replacements"
+    },
+    {
+      "id": "angerratt",
+      "rubrik": "Ångerrätt i 14 dagar",
+      "amne": ["ångerrätt", "ångra", "ånger", "14 dagar"],
+      "text": "Om du är konsument bosatt inom Europeiska unionen har du lagstadgad rätt att ångra ditt köp inom 14 dagar utan att ange något skäl. Ångerfristen löper ut 14 dagar efter den dag då du tar emot varorna. För att utöva din ångerrätt, använd den tillhandahållna ångerknappen och följ instruktionerna för att registrera din ånger. Du behöver inte kontakta kundtjänst i förväg.",
+      "lank": "https://www.missmary.se/se/cancellations-returns-and-replacements"
+    },
+    {
+      "id": "betalsatt",
+      "rubrik": "Betalsätt",
+      "amne": ["betala", "betalning", "betalsätt", "klarna", "swish", "kort", "paypal", "apple pay", "google pay", "faktura"],
+      "text": "Kassan är Kustom Checkout. Sidan listar Klarna, kortbetalning med VISA eller Mastercard/Eurocard, PayPal, Apple Pay och Google Pay. Om kort: \"Vid beställning görs en reservation av köpesumman på ditt konto. Pengarna dras först när varorna skickas.\"",
+      "lank": "https://www.missmary.se/se/payment-delivery"
+    },
+    {
+      "id": "aterbetalning",
+      "rubrik": "När pengarna kommer tillbaka",
+      "amne": ["återbetalning", "pengar tillbaka", "pengarna", "när får jag", "refund"],
+      "text": "Återbetalning sker normalt inom 14 arbetsdagar från det att vi mottagit och godkänt din retur. Vi kan endast utföra återbetalning på samma sätt och till samma konto som användes vid köptillfället.",
+      "lank": "https://www.missmary.se/se/payment-delivery"
+    },
+    {
+      "id": "leverans",
+      "rubrik": "Leverans med PostNord",
+      "amne": ["leverans", "frakt", "fraktkostnad", "skicka", "postnord", "brevlåda", "när kommer", "leveranstid"],
+      "text": "Leverans till brevlåda via PostNord: du betalar 49 kr för att få din beställning hemskickad per post. Leverans sker inom ca 2-7 arbetsdagar från det att vi har bekräftat din beställning.",
+      "lank": "https://www.missmary.se/se/payment-delivery"
+    },
+    {
+      "id": "lager-och-delleverans",
+      "rubrik": "Två lager och delade paket",
+      "amne": ["lager", "delleverans", "flera paket", "delad", "tallinn", "borås", "logent"],
+      "text": "Din beställning skickas från ett av våra två lager: vårt huvudlager i Borås, Sverige (som drivs av Logent), eller vårt lager i Tallinn, Estland. Om din beställning delas upp skickas varorna i separata paket, som kan komma fram olika dagar. Vi meddelar dig via e-post om detta sker.",
+      "lank": "https://www.missmary.se/se/payment-delivery"
+    },
+    {
+      "id": "ej-uthamtat",
+      "rubrik": "Paket som inte hämtas ut",
+      "amne": ["hämtas inte", "ej uthämtat", "inte hämtat", "avgift", "150"],
+      "text": "För alla paket som inte lösts ut från utlämningsstället debiteras kunden en avgift på 150 kr. Avgiften motsvarar de faktiska kostnaderna för frakt, expeditionsavgift och hantering.",
+      "lank": "https://www.missmary.se/se/payment-delivery"
+    },
+    {
+      "id": "tvattgaranti",
+      "rubrik": "100-tvättarsgarantin",
+      "amne": ["garanti", "100 tvättar", "tvätt", "tvätta", "håller", "trasig", "sliten"],
+      "text": "100-tvättarsgarantin gäller alla bh:ar. Gäller endast bh:ar. Tvätt måste ske enligt rekommenderade tvättanvisningar för den specifika produkten. Miss Mary garanterar funktionalitet; viss skiftning i färg och mindre skönhetsfel kan förekomma. 100-tvättarsgarantin är giltig i fem år från inköpsdatum.",
+      "lank": "https://www.missmary.se/se/100-washings-warranty"
+    }
+  ]
+}

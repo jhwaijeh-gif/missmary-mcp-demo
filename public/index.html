@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Storleks- och regelhjälpen (demo)</title>
+<meta name="description" content="Demo byggd av Jude Hwaijeh inför ansökan, inte en officiell Miss Mary-tjänst. Prova fyra verktyg för kundtjänst direkt i webbläsaren.">
+<meta name="robots" content="noindex">
+<style>
+  :root {
+    --bg: #f7f5f2;
+    --yta: #ffffff;
+    --text: #1d1b19;
+    --dampad: #5f5a54;
+    --linje: #e3ded7;
+    --accent: #7a3b4f;
+    --accent-text: #ffffff;
+    --mjuk: #f1e8eb;
+    --svar: #fbfaf8;
+    --varning: #8a5a00;
+    --varning-bg: #fff4dc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161514;
+      --yta: #201f1d;
+      --text: #f1eeea;
+      --dampad: #b3ada5;
+      --linje: #36332f;
+      --accent: #d58aa1;
+      --accent-text: #1d1b19;
+      --mjuk: #2c2226;
+      --svar: #1b1a19;
+      --varning: #f3c16a;
+      --varning-bg: #2d2516;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161514; --yta: #201f1d; --text: #f1eeea; --dampad: #b3ada5; --linje: #36332f;
+    --accent: #d58aa1; --accent-text: #1d1b19; --mjuk: #2c2226; --svar: #1b1a19;
+    --varning: #f3c16a; --varning-bg: #2d2516;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .ram { max-width: 860px; margin: 0 auto; padding: 0 16px 64px; }
+  .markning {
+    background: var(--varning-bg); color: var(--varning); font-size: 14px; font-weight: 600;
+    padding: 10px 16px; text-align: center; border-bottom: 1px solid var(--linje);
+  }
+  header { padding: 36px 0 20px; }
+  h1 { font-size: clamp(26px, 5vw, 36px); line-height: 1.15; margin: 0 0 12px; letter-spacing: -0.01em; }
+  .ingress { color: var(--dampad); margin: 0; max-width: 62ch; }
+  h2 { font-size: 20px; margin: 0 0 6px; }
+  .flikar { display: flex; gap: 8px; flex-wrap: wrap; margin: 24px 0 16px; }
+  .flik {
+    border: 1px solid var(--linje); background: var(--yta); color: var(--text);
+    padding: 10px 14px; border-radius: 999px; font: inherit; font-size: 15px; cursor: pointer;
+  }
+  .flik[aria-selected="true"] { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+  .kort { background: var(--yta); border: 1px solid var(--linje); border-radius: 14px; padding: 20px; }
+  .kort p.hjalp { color: var(--dampad); margin: 0 0 16px; font-size: 15px; }
+  .falt { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  input, select {
+    width: 100%; font: inherit; padding: 10px 12px; border-radius: 10px;
+    border: 1px solid var(--linje); background: var(--svar); color: var(--text);
+  }
+  .knappar { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; align-items: center; }
+  .kor {
+    background: var(--accent); color: var(--accent-text); border: 0; border-radius: 10px;
+    padding: 11px 18px; font: inherit; font-weight: 600; cursor: pointer;
+  }
+  .exempel {
+    background: var(--mjuk); color: var(--text); border: 0; border-radius: 999px;
+    padding: 8px 12px; font: inherit; font-size: 14px; cursor: pointer; text-align: left;
+  }
+  .exempel-rad { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .exempel-rad span { font-size: 13px; color: var(--dampad); width: 100%; }
+  .svar {
+    margin-top: 18px; background: var(--svar); border: 1px solid var(--linje); border-radius: 10px;
+    padding: 14px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14.5px; min-height: 48px;
+  }
+  .svar:empty::before { content: "Svaret visas här."; color: var(--dampad); }
+  .svar a { color: var(--accent); }
+  section.info { margin-top: 40px; }
+  section.info p, section.info li { color: var(--dampad); }
+  ol { padding-left: 22px; }
+  code.adress {
+    display: block; background: var(--yta); border: 1px solid var(--linje); border-radius: 10px;
+    padding: 12px; font-size: 15px; overflow-wrap: anywhere; color: var(--text); margin: 8px 0;
+  }
+  .kopiera { margin-top: 4px; }
+  footer { margin-top: 48px; font-size: 14px; color: var(--dampad); border-top: 1px solid var(--linje); padding-top: 16px; }
+  footer a { color: var(--accent); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="markning">Demo byggd av Jude Hwaijeh inför ansökan, inte en officiell Miss Mary-tjänst.</div>
+<div class="ram">
+  <header>
+    <h1>Storleks- och regelhjälpen</h1>
+    <p class="ingress">Fyra verktyg för en medarbetare i kundtjänst: räkna storlek, hitta produkter, kolla lager och slå upp vad som gäller. Allt bygger på publik data från missmary.se och hjälpcentret, hämtad 21 november 2026. Här provar du verktygen utan Claude. Samma verktyg finns som koppling i Claude längre ner.</p>
+  </header>
+
+  <div class="flikar" role="tablist">
+    <button class="flik" role="tab" aria-selected="true" data-flik="storlek">Storlek och passform</button>
+    <button class="flik" role="tab" aria-selected="false" data-flik="produkter">Produktsök</button>
+    <button class="flik" role="tab" aria-selected="false" data-flik="lager">Lager</button>
+    <button class="flik" role="tab" aria-selected="false" data-flik="regler">Retur, frakt, tvätt</button>
+  </div>
+
+  <form class="kort" data-panel="storlek" data-verktyg="rakna_storlek">
+    <h2>Storlek och passform</h2>
+    <p class="hjalp">Mått i centimeter enligt storleksguiden. Eller skriv en storlek kunden har i dag för att få systerstorlekar.</p>
+    <div class="falt">
+      <div><label for="s-under">Under bysten (cm)</label><input id="s-under" name="underbyst" type="number" inputmode="decimal" step="0.5"></div>
+      <div><label for="s-over">Runt bysten (cm)</label><input id="s-over" name="overbyst" type="number" inputmode="decimal" step="0.5"></div>
+      <div><label for="s-nu">Eller nuvarande storlek</label><input id="s-nu" name="nuvarandeStorlek" placeholder="till exempel 80F"></div>
+    </div>
+    <div class="knappar"><button class="kor" type="submit">Räkna</button></div>
+    <div class="exempel-rad"><span>Prova:</span>
+      <button type="button" class="exempel" data-fyll='{"underbyst":78,"overbyst":98}'>Undersida 78, byst 98</button>
+      <button type="button" class="exempel" data-fyll='{"nuvarandeStorlek":"80F"}'>Systerstorlekar till 80F</button>
+      <button type="button" class="exempel" data-fyll='{"underbyst":86,"overbyst":109}'>Undersida 86, byst 109</button>
+    </div>
+    <div class="svar" aria-live="polite"></div>
+  </form>
+
+  <form class="kort" data-panel="produkter" data-verktyg="sok_produkter" hidden>
+    <h2>Produktsök på egenskaper</h2>
+    <p class="hjalp">Söker bland 35 produktsidor: bästsäljarna plus bikini, baddräkt, minimizer, framknäppt, protes, sport och shapewear. Inte hela sortimentet.</p>
+    <div class="falt">
+      <div style="grid-column: 1 / -1"><label for="p-text">Vad söker kunden?</label><input id="p-text" name="fritext" placeholder="till exempel bygelfri bh i bomull"></div>
+      <div><label for="p-storlek">Storlek</label><input id="p-storlek" name="storlek" placeholder="till exempel 95F"></div>
+      <div><label for="p-pris">Högsta pris (kr)</label><input id="p-pris" name="maxPris" type="number" inputmode="numeric"></div>
+    </div>
+    <div class="knappar"><button class="kor" type="submit">Sök</button></div>
+    <div class="exempel-rad"><span>Prova:</span>
+      <button type="button" class="exempel" data-fyll='{"fritext":"bikinis","storlek":"80F"}'>Har ni bikinis i 80F?</button>
+      <button type="button" class="exempel" data-fyll='{"fritext":"bygelfri bh i bomull","storlek":"95F"}'>Bygelfri bh i bomull, 95F</button>
+      <button type="button" class="exempel" data-fyll='{"fritext":"framknäppt","storlek":"90D"}'>Framknäppt i 90D</button>
+    </div>
+    <div class="svar" aria-live="polite"></div>
+  </form>
+
+  <form class="kort" data-panel="lager" data-verktyg="kolla_lager" hidden>
+    <h2>Lager per storlek</h2>
+    <p class="hjalp">Ja eller nej per färg, som det stod på produktsidan vid hämtningen. Är storleken slut visas systerstorlekar.</p>
+    <div class="falt">
+      <div><label for="l-produkt">Produkt</label><input id="l-produkt" name="produkt" placeholder="till exempel Stay Fresh svart"></div>
+      <div><label for="l-storlek">Storlek</label><input id="l-storlek" name="storlek" placeholder="till exempel 85G"></div>
+    </div>
+    <div class="knappar"><button class="kor" type="submit">Kolla</button></div>
+    <div class="exempel-rad"><span>Prova:</span>
+      <button type="button" class="exempel" data-fyll='{"produkt":"Stay Fresh svart","storlek":"85G"}'>Stay Fresh svart i 85G</button>
+      <button type="button" class="exempel" data-fyll='{"produkt":"Feel Fresh vit","storlek":"80C"}'>Feel Fresh vit i 80C</button>
+      <button type="button" class="exempel" data-fyll='{"produkt":"Aurora","storlek":"42"}'>Aurora baddräktsklänning i 42</button>
+    </div>
+    <div class="svar" aria-live="polite"></div>
+  </form>
+
+  <form class="kort" data-panel="regler" data-verktyg="regler_och_skotsel" hidden>
+    <h2>Retur, frakt, tvätt och material</h2>
+    <p class="hjalp">Söker i regelsidorna och de 61 svenska artiklarna i hjälpcentret. Svarar med utdrag och länk till källan.</p>
+    <div class="falt">
+      <div style="grid-column: 1 / -1"><label for="r-fraga">Kundens fråga</label><input id="r-fraga" name="fraga" placeholder="till exempel hur returnerar jag?"></div>
+      <div style="grid-column: 1 / -1"><label for="r-produkt">Produkt (om frågan gäller material eller tvätt)</label><input id="r-produkt" name="produkt" placeholder="till exempel Lovely Lace Support"></div>
+    </div>
+    <div class="knappar"><button class="kor" type="submit">Slå upp</button></div>
+    <div class="exempel-rad"><span>Prova:</span>
+      <button type="button" class="exempel" data-fyll='{"fraga":"Hur returnerar jag?"}'>Hur returnerar jag?</button>
+      <button type="button" class="exempel" data-fyll='{"fraga":"Hur tvättar jag den?","produkt":"Lovely Lace Support"}'>Tvätt av Lovely Lace Support</button>
+      <button type="button" class="exempel" data-fyll='{"fraga":"Var är mitt paket?"}'>Var är mitt paket?</button>
+    </div>
+    <div class="svar" aria-live="polite"></div>
+  </form>
+
+  <section class="info">
+    <h2>Använd verktygen i Claude</h2>
+    <p>Samma fyra verktyg finns som en MCP-server. Lägg till den som anpassad koppling, så väljer Claude själv rätt verktyg när du klistrar in en kundfråga.</p>
+    <code class="adress" id="mcp-adress">/mcp</code>
+    <button class="exempel kopiera" type="button" id="kopiera">Kopiera adressen</button>
+    <ol>
+      <li>Öppna Claude på claude.ai eller i appen. Gå till Inställningar och sedan Kopplingar (Connectors).</li>
+      <li>Välj Lägg till anpassad koppling (Add custom connector).</li>
+      <li>Namn: Storlekshjälpen demo. Adress: den ovan. Ingen inloggning behövs.</li>
+      <li>Starta en ny chatt, slå på kopplingen och skriv till exempel: "Kunden har undersida 78 och byst 98. Vilken storlek, och har ni bikinis i den storleken?"</li>
+    </ol>
+    <p>Verktygen läser bara. De ändrar ingenting och kan inte se kunder eller ordrar.</p>
+  </section>
+
+  <section class="info">
+    <h2>Vad demon inte kan</h2>
+    <ul>
+      <li>Se en viss kunds order, retur eller paket. Det kräver koppling till ordersystemet och en avstämning om personuppgifter.</li>
+      <li>Visa antal i lager eller när en vara kommer in. Publik data säger bara finns eller slut.</li>
+      <li>Hela sortimentet. Urvalet är 35 produktsidor.</li>
+      <li>Vara säker på att datan är aktuell. Den hämtades 21 november 2026.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Demo byggd av Jude Hwaijeh inför ansökan, inte en officiell Miss Mary-tjänst. Produktdata, regler och hjälpartiklar kommer från missmary.se och support.missmary.com.
+    Koden och en förklaring av varje del: <a href="https://github.com/jhwaijeh-gif/missmary-mcp-demo">github.com/jhwaijeh-gif/missmary-mcp-demo</a>.
+  </footer>
+</div>
+
+<script>
+  const mcp = location.origin + "/mcp";
+  document.getElementById("mcp-adress").textContent = mcp;
+  document.getElementById("kopiera").addEventListener("click", async (e) => {
+    try { await navigator.clipboard.writeText(mcp); e.target.textContent = "Kopierad"; }
+    catch { e.target.textContent = "Markera och kopiera adressen"; }
+  });
+
+  for (const flik of document.querySelectorAll(".flik")) {
+    flik.addEventListener("click", () => {
+      for (const f of document.querySelectorAll(".flik")) f.setAttribute("aria-selected", String(f === flik));
+      for (const p of document.querySelectorAll("[data-panel]")) p.hidden = p.dataset.panel !== flik.dataset.flik;
+    });
+  }
+
+  function lankar(text) {
+    const s = text.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    return s.replace(/https?:\/\/[^\s,]+/g, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
+  }
+
+  async function kor(form) {
+    const indata = {};
+    for (const el of form.querySelectorAll("input")) {
+      const v = el.value.trim();
+      if (!v) continue;
+      indata[el.name] = el.type === "number" ? Number(v.replace(",", ".")) : v;
+    }
+    const ruta = form.querySelector(".svar");
+    ruta.textContent = "Hämtar ...";
+    try {
+      const r = await fetch("/api/verktyg", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ verktyg: form.dataset.verktyg, indata }),
+      });
+      const j = await r.json();
+      ruta.innerHTML = j.svar ? lankar(j.svar) : "Något saknas: " + lankar(j.fel || "okänt fel");
+    } catch {
+      ruta.textContent = "Kunde inte nå servern. Försök igen om en stund.";
+    }
+  }
+
+  for (const form of document.querySelectorAll("form[data-verktyg]")) {
+    form.addEventListener("submit", (e) => { e.preventDefault(); kor(form); });
+    for (const knapp of form.querySelectorAll("[data-fyll]")) {
+      knapp.addEventListener("click", () => {
+        const fyll = JSON.parse(knapp.dataset.fyll);
+        for (const el of form.querySelectorAll("input")) el.value = fyll[el.name] ?? "";
+        kor(form);
+      });
+    }
+  }
+</script>
+</body>
+</html>
