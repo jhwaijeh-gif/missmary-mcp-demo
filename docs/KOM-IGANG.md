@@ -8,11 +8,11 @@ _Demo byggd av Jude Hwaijeh inför ansökan, inte en officiell Miss Mary-tjänst
 
 ## Kom åt det
 
-**Utan Claude:** öppna testsidan, {{ADRESS}}. Välj flik, fyll i, tryck på knappen.
+**Utan Claude:** öppna testsidan, https://missmary-mcp-demo.vercel.app. Välj flik, fyll i, tryck på knappen.
 
 **I Claude:**
 1. Inställningar, sedan Kopplingar (Connectors), sedan Lägg till anpassad koppling.
-2. Namn: Storlekshjälpen demo. Adress: {{ADRESS}}/mcp
+2. Namn: Storlekshjälpen demo. Adress: https://missmary-mcp-demo.vercel.app/mcp
 3. Ny chatt. Slå på kopplingen under verktygsknappen i chattfältet.
 
 I Claude Team och Enterprise lägger en administratör till kopplingen för organisationen först.

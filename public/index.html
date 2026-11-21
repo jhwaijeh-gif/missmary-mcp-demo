@@ -227,7 +227,7 @@
 
   function lankar(text) {
     const s = text.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-    return s.replace(/https?:\/\/[^\s,]+/g, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
+    return s.replace(/https?:\/\/[^\s,]*[^\s,.]/g, (u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
   }
 
   async function kor(form) {

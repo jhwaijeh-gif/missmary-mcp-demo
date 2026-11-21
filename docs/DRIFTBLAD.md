@@ -7,7 +7,7 @@ _Demo byggd av Jude Hwaijeh inför ansökan, inte en officiell Miss Mary-tjänst
 | | |
 |---|---|
 | Vad | MCP-server med fyra verktyg som bara läser |
-| Var | Vercel, gratisplanen, eget projekt. Adress: {{ADRESS}}/mcp |
+| Var | Vercel, gratisplanen, eget projekt. Adress: https://missmary-mcp-demo.vercel.app/mcp |
 | Kod | https://github.com/jhwaijeh-gif/missmary-mcp-demo, publik, MIT |
 | Data | Ögonblicksbild 21 november 2026: 35 produktsidor, storleksguiden, nio regelstycken, 61 hjälpartiklar |
 | Nycklar | Inga. All data är publik |
